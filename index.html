@@ -142,7 +142,8 @@
     transform: translateX(40px);
     opacity: 0;
     object-fit: contain;
-    mix-blend-mode: screen;
+    background: white;
+    padding: 24px;
   }
 
   .hero-content {
@@ -388,17 +389,19 @@
     display: flex; align-items: center; justify-content: center;
     height: 300px;
     width: 100%;
+    background: #ffffff;
+    border-radius: 4px;
+    padding: 16px;
   }
   .bike-image-wrap img {
     max-height: 100%; max-width: 100%;
     object-fit: contain;
-    filter: drop-shadow(0 20px 40px rgba(0,0,0,0.7));
+    filter: drop-shadow(0 8px 20px rgba(0,0,0,0.15));
     transition: transform 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94), filter 0.5s;
-    mix-blend-mode: screen;
   }
   .bike-card:hover .bike-image-wrap img {
     transform: scale(1.05) translateY(-8px);
-    filter: drop-shadow(0 40px 60px rgba(27,143,255,0.3)) drop-shadow(0 20px 40px rgba(0,0,0,0.7));
+    filter: drop-shadow(0 20px 40px rgba(27,143,255,0.2)) drop-shadow(0 8px 20px rgba(0,0,0,0.15));
   }
   .bike-glow {
     position: absolute;
@@ -619,10 +622,12 @@
   .contact-bike-img {
     width: 100%;
     max-width: 500px;
-    filter: drop-shadow(0 0 60px rgba(27,143,255,0.2));
+    filter: drop-shadow(0 0 40px rgba(27,143,255,0.15));
     animation: float 6s ease-in-out infinite;
-    mix-blend-mode: screen;
     object-fit: contain;
+    background: white;
+    padding: 20px;
+    border-radius: 4px;
   }
   @keyframes float {
     0%, 100% { transform: translateY(0); }
@@ -752,8 +757,8 @@
     <div class="stat-label">От 3000₽/неделя</div>
   </div>
   <div class="stat-item">
-    <div class="stat-value">0<span>прав</span></div>
-    <div class="stat-label">Права не нужны</div>
+    <div class="stat-value" style="font-size:32px;letter-spacing:0.06em;">ПРАВА</div>
+    <div class="stat-label">Не нужны</div>
   </div>
 </div>
 
