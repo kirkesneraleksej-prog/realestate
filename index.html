@@ -652,6 +652,8 @@
   .loader-percent { font-family: 'Bebas Neue', sans-serif; font-size: 14px; letter-spacing: 0.2em; color: var(--muted); }
 
   @media (max-width: 1024px) {
+    .cursor, .cursor-ring { display: none !important; }
+    body { cursor: default; }
     nav { padding: 16px 20px; width: 100%; }
     .nav-links { display: none; }
     section { padding: 60px 20px; }
@@ -973,13 +975,20 @@
 
   const cursor = document.getElementById('cursor');
   const ring = document.getElementById('cursorRing');
-  let mx = 0, my = 0, rx = 0, ry = 0;
-  document.addEventListener('mousemove', e => { mx = e.clientX; my = e.clientY; cursor.style.left = mx + 'px'; cursor.style.top = my + 'px'; });
-  (function animRing() {
-    rx += (mx - rx) * 0.12; ry += (my - ry) * 0.12;
-    ring.style.left = rx + 'px'; ring.style.top = ry + 'px';
-    requestAnimationFrame(animRing);
-  })();
+  // Скрываем курсор на тач-устройствах
+  if (window.matchMedia('(pointer: coarse)').matches) {
+    cursor.style.display = 'none';
+    ring.style.display = 'none';
+    document.body.style.cursor = 'default';
+  } else {
+    let mx = 0, my = 0, rx = 0, ry = 0;
+    document.addEventListener('mousemove', e => { mx = e.clientX; my = e.clientY; cursor.style.left = mx + 'px'; cursor.style.top = my + 'px'; });
+    (function animRing() {
+      rx += (mx - rx) * 0.12; ry += (my - ry) * 0.12;
+      ring.style.left = rx + 'px'; ring.style.top = ry + 'px';
+      requestAnimationFrame(animRing);
+    })();
+  }
 
   const bar = document.getElementById('loaderBar');
   const pct = document.getElementById('loaderPercent');
