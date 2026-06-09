@@ -139,7 +139,8 @@
     bottom: -5%;
     width: 58%;
     max-width: 860px;
-    filter: drop-shadow(0 0 80px rgba(27,143,255,0.25)) drop-shadow(0 40px 60px rgba(0,0,0,0.8));
+    filter: drop-shadow(0 0 40px rgba(27,143,255,0.5)) brightness(1.05) contrast(1.1);
+    mix-blend-mode: screen;
     transform: translateX(40px);
     opacity: 0;
     object-fit: contain;
@@ -392,12 +393,13 @@
   .bike-image-wrap img {
     max-height: 100%; max-width: 100%;
     object-fit: contain;
-    filter: drop-shadow(0 8px 20px rgba(0,0,0,0.15));
+    mix-blend-mode: screen;
+    filter: drop-shadow(0 0 18px rgba(27,143,255,0.5)) brightness(1.05) contrast(1.1);
     transition: transform 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94), filter 0.5s;
   }
   .bike-card:hover .bike-image-wrap img {
     transform: scale(1.05) translateY(-8px);
-    filter: drop-shadow(0 20px 40px rgba(27,143,255,0.2)) drop-shadow(0 8px 20px rgba(0,0,0,0.15));
+    filter: drop-shadow(0 0 32px rgba(27,143,255,0.8)) brightness(1.1) contrast(1.15);
   }
   .bike-glow {
     position: absolute;
@@ -618,7 +620,8 @@
   .contact-bike-img {
     width: 100%;
     max-width: 500px;
-    filter: drop-shadow(0 0 40px rgba(27,143,255,0.15));
+    filter: drop-shadow(0 0 30px rgba(27,143,255,0.5)) brightness(1.05) contrast(1.1);
+    mix-blend-mode: screen;
     animation: float 6s ease-in-out infinite;
     object-fit: contain;
   }
