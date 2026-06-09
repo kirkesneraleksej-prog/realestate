@@ -24,13 +24,14 @@
     --muted: rgba(245,245,245,0.45);
   }
 
-  html { scroll-behavior: smooth; }
+  html { scroll-behavior: smooth; overflow-x: hidden; max-width: 100%; }
 
   body {
     background: var(--black);
     color: var(--white);
     font-family: 'Inter', sans-serif;
     overflow-x: hidden;
+    max-width: 100%;
     cursor: none;
   }
 
@@ -651,18 +652,37 @@
   .loader-percent { font-family: 'Bebas Neue', sans-serif; font-size: 14px; letter-spacing: 0.2em; color: var(--muted); }
 
   @media (max-width: 1024px) {
-    nav { padding: 20px 24px; }
+    nav { padding: 16px 20px; width: 100%; }
     .nav-links { display: none; }
-    section { padding: 80px 24px; }
-    .hero-content { padding: 0 24px 80px; }
-    .hero-bike { width: 100%; right: -10%; bottom: 0; opacity: 0.25; }
+    section { padding: 60px 20px; }
+    .hero-content { padding: 0 20px 80px; max-width: 100%; }
+    .hero-title { font-size: clamp(52px, 14vw, 90px); }
+    .hero-bike { width: 90%; right: 5%; left: 5%; bottom: 0; opacity: 0.3; }
+    .hero-scroll { right: 20px; }
     .stats-bar { grid-template-columns: repeat(2, 1fr); }
+    .stat-item { padding: 24px 20px; }
     .fleet-grid { grid-template-columns: 1fr; }
+    .bike-card-inner { padding: 28px; min-height: auto; }
     .pricing-layout { grid-template-columns: 1fr; gap: 40px; }
+    .pricing-bonus { padding: 32px; }
     .steps-grid { grid-template-columns: repeat(2, 1fr); }
     .contact-layout { grid-template-columns: 1fr; }
     .contact-right { display: none; }
-    footer { flex-direction: column; gap: 16px; text-align: center; }
+    .contact-big-title { font-size: clamp(48px, 12vw, 80px); }
+    footer { flex-direction: column; gap: 16px; text-align: center; padding: 24px 20px; }
+  }
+
+  @media (max-width: 480px) {
+    nav { padding: 14px 16px; }
+    section { padding: 48px 16px; }
+    .hero-content { padding: 0 16px 60px; }
+    .stats-bar { grid-template-columns: repeat(2, 1fr); }
+    .stat-item { padding: 20px 16px; }
+    .stat-value { font-size: 32px; }
+    .steps-grid { grid-template-columns: 1fr; }
+    .bike-card-inner { padding: 20px; }
+    .fleet-header { flex-direction: column; gap: 16px; }
+    .section-title { font-size: clamp(40px, 10vw, 60px); }
   }
 </style>
 </head>
@@ -745,7 +765,7 @@
     <div class="stat-label">Минимальный срок</div>
   </div>
   <div class="stat-item">
-    <div class="stat-value">3<span>тыс</span></div>
+    <div class="stat-value">3<span>к</span></div>
     <div class="stat-label">От 3000₽/неделя</div>
   </div>
   <div class="stat-item">
